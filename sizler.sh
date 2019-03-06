@@ -24,7 +24,8 @@ RESET="\033[00m"
 SIZE=`echo $(df -h | grep .\/$ | awk 'END {print $5}') |tr -d [=%=]`
 
 if [ $SIZE -gt 96 ]; then
-	echo -e "${RED}DISK SPACE CRITICAL! CLEAR SOME SPACE! -Admin${RESET}" | sudo ssmtp -vvv email@gmail.com
+	echo -e "${RED}DISK SPACE CRITICAL! Current utilization is above 96%. Clear some space, or else. -Admin${RESET}"
+	echo -e "DISK SPACE CRITICAL! Current utilization is above 96%. Clear some space, or else. -Admin" | sudo ssmtp -vvv email@gmail.com
 else	
 	printf "\n"
 	printf "\n"
